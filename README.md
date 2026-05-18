@@ -35,11 +35,11 @@ The primary objective of this system is to develop a robust and configurable rea
 ➤ User-configurable parameters
 
 ➤ Reliable and validated runtime updates
-
+---
 ## 🔷 3. System Architecture
----
+
 ## 🧩 Hardware Components
----
+
 • LPC2148 ARM7 Microcontroller
 
 • LM35 Temperature Sensor
@@ -53,11 +53,11 @@ The primary objective of this system is to develop a robust and configurable rea
 • Push Button (Mode Selection)
 
 • LED (Fault Indicator)
-
-## 🔷 4. Functional Architecture & Technical Implementation
-
-## 🌡️🔄 A) Analog-to-Digital Conversion (Temperature Acquisition)
 ---
+## 🔷 4. Functional Architecture & Technical Implementation
+---
+## 🌡️🔄 A) Analog-to-Digital Conversion (Temperature Acquisition)
+
 The LM35 sensor produces a linear output of:
 
 |📌 10mV per °C
@@ -154,9 +154,9 @@ Data transmitted to PC via MAX232 interface.
 ✔ Status tagging
 
 ✔ Serial protocol configuration
-
-## 🚨 D) Threshold-Based Fault Detection Mechanism
 ---
+## 🚨 D) Threshold-Based Fault Detection Mechanism
+
 A configurable temperature setpoint (default: 45°C) is implemented.
 
 ## Logic Flow:
@@ -189,13 +189,13 @@ This demonstrates:
 ✔ Event-driven alert mechanism
 
 ✔ Safety-oriented embedded design
-
+---
 ## 🔷 5. Human-Machine Interface (HMI) Design
----
-One of the most technically impressive aspects of this project is the structured editing interface.
 
-## 🔀 🔹 Mode Switching Mechanism
+One of the most technically impressive aspects of this project is the structured editing interface.
 ---
+## 🔀 🔹 Mode Switching Mechanism
+
 • Push button connected to GPIO
 
 • Software flag for mode transition
@@ -222,12 +222,12 @@ One of the most technically impressive aspects of this project is the structured
 ✔ Day
 
 ✔ Temperature Setpoint
-
-## 🔹 UI Implementation Approach
 ---
+## 🔹 UI Implementation Approach
+
 ## 🔸 Method – Menu-Based Editing
 Hierarchical structured menu with option selection.
-
+---
 ## Input Validation Strategy
 Before updating RTC registers:
 
@@ -246,7 +246,7 @@ This reflects:
 ✔ Robust firmware design
 
 ✔ Prevention of invalid states
-
+---
 ## 🔷 6. Firmware Design Methodology
 Developed in Embedded C using:
 
@@ -277,7 +277,7 @@ Developed in Embedded C using:
 ✔ Modular function structure
 
 ✔ Clean separation of drivers and application logic
-
+---
 ## 🔷 7. Engineering Challenges & Solutions
 ---
 | Challenge | Solution |
@@ -285,7 +285,7 @@ Developed in Embedded C using:
 | Synchronizing ADC & RTC reads | Structured polling mechanism |
 | Preventing invalid RTC updates | Strict boundary validation |
 | Maintaining responsiveness | Non-blocking loop design |
-
+---
 ## 🔷 8. Industrial Relevance
 This system closely resembles real-world applications such as:
 
@@ -298,7 +298,7 @@ This system closely resembles real-world applications such as:
 ✔ Laboratory data acquisition
 
 ✔ Compliance-based audit logging systems
-
+---
 ## 🔷 9. Core Skills Demonstrated
 ✅ ARM7 Architecture Understanding
 
@@ -317,7 +317,7 @@ This system closely resembles real-world applications such as:
 ✅ Hardware-Software Integration
 
 ✅ Structured Embedded C Programming
-
+---
 ## 🔷 10. Strong Professional Closing Statement
 
 “Through this project, I implemented a complete real-time embedded monitoring system integrating sensing, timestamp synchronization, structured logging, configurable runtime control, and fault handling. It strengthened my expertise in ARM7 peripheral programming, embedded system architecture, and industrial-grade firmware design.”
