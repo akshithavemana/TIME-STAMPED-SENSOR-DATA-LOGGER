@@ -179,7 +179,7 @@ ELSE
 
 ➤ Send INFO log
 
-Temperature within safe limit1
+![image alt](https://github.com/akshithavemana/TIME-STAMPED-SENSOR-DATA-LOGGER/blob/2f5fdce406a0b6855d79ca958f6a4d3009f3b343/image2%20(2).jpeg)
 
 This demonstrates:
 
@@ -274,11 +274,14 @@ Design Model:
 
 ✔ Clean separation of drivers and application logic
 
-🔷 7. Engineering Challenges & Solutions
-Challenge	Solution
-Synchronizing ADC & RTC reads	Structured polling mechanism
-Preventing invalid RTC updates	Strict boundary validation
-Maintaining responsiveness	Non-blocking loop design
+## 🔷 7. Engineering Challenges & Solutions
+
+| Challenge | Solution |
+|---|---|
+| Synchronizing ADC & RTC reads | Structured polling mechanism |
+| Preventing invalid RTC updates | Strict boundary validation |
+| Maintaining responsiveness | Non-blocking loop design |
+<table><tr><td class="border_l border_r border_t border_b selected" style="text-align: left;"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Challenges</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Solution</span></p></div></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Sychronizing ADC &amp; RTC update</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Structured polling mechanism</span></p></div></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Preventing invalid RTC update</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Strict boundaery validation</span></p></div></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Maintaining responsiveness</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Non-blocking loop design</span></p></div></div></td></tr></table>
 🔷 8. Industrial Relevance
 This system closely resembles real-world applications such as:
 
