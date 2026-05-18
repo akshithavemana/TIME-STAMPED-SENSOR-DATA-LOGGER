@@ -1,8 +1,8 @@
-🕒 TIME-STAMPED SENSOR DATA LOGGER
-
-(Real-Time Embedded Monitoring System using ARM7 Architecture)
-
-🔷 1. Executive Summary
+## 🕒 TIME-STAMPED SENSOR DATA LOGGER
+---
+## (Real-Time Embedded Monitoring System using ARM7 Architecture)
+## ---
+## 🔷 1. Executive Summary
 
 The Time-Stamped Sensor Data Logger is a real-time embedded system designed to continuously monitor temperature, associate each reading with precise date and time information, and log structured data for traceability and analysis.
 
@@ -19,9 +19,9 @@ This project replicates the core functionality of an industrial data acquisition
 ✔ User-controlled RTC editing
 
 ✔ Structured serial communication
-
-🔷 2. System Objective
-
+# ---
+## 🔷 2. System Objective
+---
 The primary objective of this system is to develop a robust and configurable real-time monitoring solution capable of:
 
 ➤ Continuous temperature acquisition
@@ -35,11 +35,11 @@ The primary objective of this system is to develop a robust and configurable rea
 ➤ User-configurable parameters
 
 ➤ Reliable and validated runtime updates
-
-🔷 3. System Architecture
-
-🧩 Hardware Components
-
+#---
+## 🔷 3. System Architecture
+---
+## 🧩 Hardware Components
+---
 • LPC2148 ARM7 Microcontroller
 
 • LM35 Temperature Sensor
@@ -53,16 +53,16 @@ The primary objective of this system is to develop a robust and configurable rea
 • Push Button (Mode Selection)
 
 • LED (Fault Indicator)
+# ---
+## 🔷 4. Functional Architecture & Technical Implementation
 
-🔷 4. Functional Architecture & Technical Implementation
-
-🌡️🔄 A) Analog-to-Digital Conversion (Temperature Acquisition)
-
+## 🌡️🔄 A) Analog-to-Digital Conversion (Temperature Acquisition)
+---
 The LM35 sensor produces a linear output of:
 
-📌 10mV per °C
+|📌 10mV per °C
 
-Implementation Steps:
+## Implementation Steps:
 ➤ Configured ADC channel of LPC2148
 
 ➤ Enabled peripheral clock for ADC
@@ -72,19 +72,19 @@ Implementation Steps:
 ➤ Converted analog voltage to digital value
 
 ➤ Applied scaling formula:
-
+```text
  Temperature (°C) = {ADC Value × Vref}/{Resolution × 10mV}
- 
-Engineering Value:
+ ```
+## Engineering Value:
 
 ✔ Direct register-level programming
 
 ✔ Accurate signal conversion
 
 ✔ Calibration handling
-
-🕒 B) Real-Time Clock (RTC) Integration
-
+# ---
+## 🕒 B) Real-Time Clock (RTC) Integration
+---
 The on-chip RTC of LPC2148 was configured to maintain:
 
 • Hours
@@ -101,7 +101,7 @@ The on-chip RTC of LPC2148 was configured to maintain:
 
 • Day
 
-RTC Implementation Highlights:
+## RTC Implementation Highlights:
 
 ➤ Enabled RTC power control
 
@@ -111,10 +111,10 @@ RTC Implementation Highlights:
 
 ➤ Validated updates before writing new values
 
-Structured Log Format:
-
+## Structured Log Format:
+```text
 [INFO] Temp: 32.5°C @ 13:45:20 13/05/2025
-
+```
 This ensures:
 
 ✔ Traceability
@@ -122,9 +122,9 @@ This ensures:
 ✔ Historical data mapping
 
 ✔ Audit-friendly logging
-
-📡 C) UART Communication (Data Logging)
-
+# ---
+## 📡 C) UART Communication (Data Logging)
+---
 UART0 configured with:
 
 • 9600 baud rate
@@ -137,32 +137,33 @@ UART0 configured with:
 
 Data transmitted to PC via MAX232 interface.
 
-Log Categories:
+## Log Categories:
 
 ✔ Normal Condition
-
+```text
 [INFO] Temp: 32.5°C @ 13:45:20 13/05/2025
-
+```
 ✔ Over-Temperature Condition
-
+```text
 [ALERT] Temp: 47.3°C @ 14:10:55 13/05/2025 - OVER TEMP!
-
-Engineering Strength:
+```
+## Engineering Strength:
 
 ✔ Structured message framing
 
 ✔ Status tagging
 
 ✔ Serial protocol configuration
-
-🚨 D) Threshold-Based Fault Detection Mechanism
-
+# ---
+## 🚨 D) Threshold-Based Fault Detection Mechanism
+---
 A configurable temperature setpoint (default: 45°C) is implemented.
 
-Logic Flow:
+## Logic Flow:
 IF
-
+```text
 Temperature > Setpoint
+```
 THEN
 
 ➤ Activate LED
@@ -188,11 +189,13 @@ This demonstrates:
 ✔ Event-driven alert mechanism
 
 ✔ Safety-oriented embedded design
-
-🔷 5. Human-Machine Interface (HMI) Design
+# ---
+## 🔷 5. Human-Machine Interface (HMI) Design
+---
 One of the most technically impressive aspects of this project is the structured editing interface.
-
-🔀 🔹 Mode Switching Mechanism
+# ---
+## 🔀 🔹 Mode Switching Mechanism
+---
 • Push button connected to GPIO
 
 • Software flag for mode transition
@@ -202,8 +205,8 @@ One of the most technically impressive aspects of this project is the structured
 ➤ Monitoring Mode
 
 ➤ Editing Mode
-
-⚙️ 🔹 Editable Parameters
+# ---
+## ⚙️ 🔹 Editable Parameters
 ✔ Hour
 
 ✔ Minute
@@ -219,12 +222,13 @@ One of the most technically impressive aspects of this project is the structured
 ✔ Day
 
 ✔ Temperature Setpoint
-
-🔹 UI Implementation Approach
-🔸 Method – Menu-Based Editing
+# ---
+## 🔹 UI Implementation Approach
+---
+## 🔸 Method – Menu-Based Editing
 Hierarchical structured menu with option selection.
-
-Input Validation Strategy
+# ---
+## Input Validation Strategy
 Before updating RTC registers:
 
 ✔ Range validation (0–59 for seconds/minutes)
@@ -242,15 +246,15 @@ This reflects:
 ✔ Robust firmware design
 
 ✔ Prevention of invalid states
-
-🔷 6. Firmware Design Methodology
+# ---
+## 🔷 6. Firmware Design Methodology
 Developed in Embedded C using:
 
 • Keil µVision
 
 • Flash Magic
 
-Software Architecture:
+## Software Architecture:
 1️⃣ Peripheral Initialization
 
 2️⃣ Infinite Super Loop
@@ -267,7 +271,7 @@ Software Architecture:
 
 8️⃣ Edit Mode Polling
 
-Design Model:
+## Design Model:
 ✔ Cooperative multitasking
 
 ✔ Modular function structure
@@ -275,14 +279,14 @@ Design Model:
 ✔ Clean separation of drivers and application logic
 
 ## 🔷 7. Engineering Challenges & Solutions
-
+---
 | Challenge | Solution |
 |---|---|
 | Synchronizing ADC & RTC reads | Structured polling mechanism |
 | Preventing invalid RTC updates | Strict boundary validation |
 | Maintaining responsiveness | Non-blocking loop design |
-<table><tr><td class="border_l border_r border_t border_b selected" style="text-align: left;"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Challenges</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Solution</span></p></div></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Sychronizing ADC &amp; RTC update</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Structured polling mechanism</span></p></div></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Preventing invalid RTC update</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Strict boundaery validation</span></p></div></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Maintaining responsiveness</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Non-blocking loop design</span></p></div></div></td></tr></table>
-🔷 8. Industrial Relevance
+
+## 🔷 8. Industrial Relevance
 This system closely resembles real-world applications such as:
 
 ✔ Environmental monitoring
@@ -295,7 +299,7 @@ This system closely resembles real-world applications such as:
 
 ✔ Compliance-based audit logging systems
 
-🔷 9. Core Skills Demonstrated
+## 🔷 9. Core Skills Demonstrated
 ✅ ARM7 Architecture Understanding
 
 ✅ Peripheral Register Programming
@@ -313,6 +317,8 @@ This system closely resembles real-world applications such as:
 ✅ Hardware-Software Integration
 
 ✅ Structured Embedded C Programming
-
-🔷 10. Strong Professional Closing Statement
-“Through this project, I implemented a complete real-time embedded monitoring system integrating sensing, timestamp synchronization, structured logging, configurable runtime control, and fault handling. It strengthened my expertise in ARM7 peripheral programming, embedded system architecture, and industrial-grade firmware design.”
+# ---
+## 🔷 10. Strong Professional Closing Statement
+---
+|“Through this project, I implemented a complete real-time embedded monitoring |system integrating sensing, timestamp synchronization, structured logging, |configurable runtime control, and fault handling. It strengthened my expertise in |ARM7 peripheral programming, embedded system architecture, and industrial-grade |firmware design.”
+# ---
