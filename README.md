@@ -1,6 +1,9 @@
 🕒 TIME-STAMPED SENSOR DATA LOGGER
+
 (Real-Time Embedded Monitoring System using ARM7 Architecture)
+
 🔷 1. Executive Summary
+
 The Time-Stamped Sensor Data Logger is a real-time embedded system designed to continuously monitor temperature, associate each reading with precise date and time information, and log structured data for traceability and analysis.
 
 The system is built around the LPC2148, utilizing its integrated peripherals such as ADC, RTC, UART, and GPIO. Temperature sensing is performed using the LM35, known for its linear output and precision.
@@ -18,6 +21,7 @@ This project replicates the core functionality of an industrial data acquisition
 ✔ Structured serial communication
 
 🔷 2. System Objective
+
 The primary objective of this system is to develop a robust and configurable real-time monitoring solution capable of:
 
 ➤ Continuous temperature acquisition
@@ -33,7 +37,9 @@ The primary objective of this system is to develop a robust and configurable rea
 ➤ Reliable and validated runtime updates
 
 🔷 3. System Architecture
+
 🧩 Hardware Components
+
 • LPC2148 ARM7 Microcontroller
 
 • LM35 Temperature Sensor
@@ -49,7 +55,9 @@ The primary objective of this system is to develop a robust and configurable rea
 • LED (Fault Indicator)
 
 🔷 4. Functional Architecture & Technical Implementation
+
 🌡️🔄 A) Analog-to-Digital Conversion (Temperature Acquisition)
+
 The LM35 sensor produces a linear output of:
 
 📌 10mV per °C
@@ -66,7 +74,9 @@ Implementation Steps:
 ➤ Applied scaling formula:
 
  Temperature (°C) = {ADC Value × Vref}/{Resolution × 10mV}
+ 
 Engineering Value:
+
 ✔ Direct register-level programming
 
 ✔ Accurate signal conversion
@@ -74,6 +84,7 @@ Engineering Value:
 ✔ Calibration handling
 
 🕒 B) Real-Time Clock (RTC) Integration
+
 The on-chip RTC of LPC2148 was configured to maintain:
 
 • Hours
@@ -91,6 +102,7 @@ The on-chip RTC of LPC2148 was configured to maintain:
 • Day
 
 RTC Implementation Highlights:
+
 ➤ Enabled RTC power control
 
 ➤ Initialized RTC SFR registers
@@ -100,7 +112,9 @@ RTC Implementation Highlights:
 ➤ Validated updates before writing new values
 
 Structured Log Format:
+
 [INFO] Temp: 32.5°C @ 13:45:20 13/05/2025
+
 This ensures:
 
 ✔ Traceability
@@ -110,6 +124,7 @@ This ensures:
 ✔ Audit-friendly logging
 
 📡 C) UART Communication (Data Logging)
+
 UART0 configured with:
 
 • 9600 baud rate
@@ -123,13 +138,17 @@ UART0 configured with:
 Data transmitted to PC via MAX232 interface.
 
 Log Categories:
+
 ✔ Normal Condition
 
 [INFO] Temp: 32.5°C @ 13:45:20 13/05/2025
+
 ✔ Over-Temperature Condition
 
 [ALERT] Temp: 47.3°C @ 14:10:55 13/05/2025 - OVER TEMP!
+
 Engineering Strength:
+
 ✔ Structured message framing
 
 ✔ Status tagging
@@ -137,6 +156,7 @@ Engineering Strength:
 ✔ Serial protocol configuration
 
 🚨 D) Threshold-Based Fault Detection Mechanism
+
 A configurable temperature setpoint (default: 45°C) is implemented.
 
 Logic Flow:
@@ -152,7 +172,7 @@ THEN
 ➤ Display warning on LCD
 
 
-
+![image alt](https://github.com/akshithavemana/TIME-STAMPED-SENSOR-DATA-LOGGER/blob/be5b5bf0266f8c0ed09d9fa99af182f7c95bad34/554320139-62f7dc34-b9bd-4a9d-9b7e-60ef0b193755.jpeg)
 ELSE
 
 ➤ LED OFF
